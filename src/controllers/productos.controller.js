@@ -10,7 +10,7 @@ const index = ('/', (req, res) => {
 
   fetch(url)
   .then(response => response.json())
-  .then(productos => res.json(productos));
+  .then(productos =>  res.render('productos', { productos }));
 });
 
 const show = ('/:id', (req, res) => {

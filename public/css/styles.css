@@ -1,0 +1,13 @@
+h1{
+    color: blue;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:.5rem;
+}
