@@ -6,10 +6,13 @@ const layouts = require('express-ejs-layouts');
 
 
 const port = process.env.APP_PORT || 3001;
-const bodyParser = require('body-parser');
+
 
 const path= require('path');
 
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "public"))); //middleware para archivos estaticos (css, js, imagenes)
 
@@ -23,10 +26,6 @@ const mainRouter = require('./src/routes/main.router');
 app.use('/', mainRouter); //valido tambien app.use(mainRouter); 
 const productosRouter = require('./src/routes/productos.router');
 app.use('/productos', productosRouter);
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
-
 
 
 app.listen(port, () => {
